@@ -14,10 +14,10 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Конфигурация через переменные окружения
-BOT_TOKEN = os.environ.get('BOT_TOKEN', 'YOUR_BOT_TOKEN_HERE')  # Получите от @BotFather
+# Конфигурация через переменные окружения с реальными значениями по умолчанию
+BOT_TOKEN = os.environ.get('BOT_TOKEN', '7808830885:AAHFkGTaOylnQ99RrNolU5UgjEgo2gxFrqo')  # Получите от @BotFather
 WEB_SERVER_URL = os.environ.get('WEB_SERVER_URL', 'http://127.0.0.1:5000')  # URL вашего веб-сервера
-ADMIN_CHAT_ID = os.environ.get('ADMIN_CHAT_ID', 'YOUR_CHAT_ID_HERE')  # Ваш chat_id для получения уведомлений
+ADMIN_CHAT_ID = os.environ.get('ADMIN_CHAT_ID', '2063086506')  # Ваш chat_id для получения уведомлений
 
 class OrderBot:
     def __init__(self, token, web_server_url):
