@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPN Premium - Лучшие VPN услуги</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Главная секция -->
+        <section id="main-section" class="main-section">
+            <div class="hero-content">
+                <div class="logo">
+                    <div class="logo-icon">🔒</div>
+                    <div class="logo-text">VPN Premium</div>
+                </div>
+                <h1>Безопасный доступ к сети</h1>
+                <p class="hero-description">Получите надёжный VPN с высокой скоростью и полной анонимностью</p>
+                <div class="features">
+                    <div class="feature">
+                        <span class="feature-icon">⚡</span>
+                        <span>Высокая скорость</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🌍</span>
+                        <span>50+ стран доступа</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🛡️</span>
+                        <span>Полная защита</span>
+                    </div>
+                </div>
+                <button id="order-btn" class="order-button">
+                    <span class="btn-icon">🚀</span>
+                    Получить доступ
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Модальное окно для ввода данных -->
+    <div id="order-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon">🔒</div>
+                <h2>Оформление VPN подписки</h2>
+                <p class="modal-subtitle">Заполните данные для получения доступа</p>
+            </div>
+            <form id="order-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">👤 Ваше имя:</label>
+                        <input type="text" id="name" name="name" required placeholder="Введите ваше имя">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">📞 Телефон:</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="+7 (999) 123-45-67">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">📧 Email адрес:</label>
+                    <input type="email" id="email" name="email" required placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="service">🎨 Выберите пакет:</label>
+                    <select id="service" name="service" required>
+                        <option value="">Выберите подходящий пакет</option>
+                        <option value="basic">🌱 Базовый - 300₽/мес</option>
+                        <option value="premium">🎆 Премиум - 500₽/мес</option>
+                        <option value="enterprise">🏆 Корпоративный - 1000₽/мес</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">📝 Комментарий (необязательно):</label>
+                    <textarea id="message" name="message" rows="3" placeholder="Опишите ваши пожелания..."></textarea>
+                </div>
+                <button type="submit" class="submit-button">
+                    <span class="btn-icon">🚀</span>
+                    Оформить подписку
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Модальное окно загрузки -->
+    <div id="loading-modal" class="modal">
+        <div class="modal-content loading-content">
+            <div class="spinner"></div>
+            <div class="loading-icon">📶</div>
+            <h3>Обрабатываем вашу заявку...</h3>
+            <p>Пожалуйста, подождите. Мы проверяем ваши данные и подготавливаем VPN доступ.</p>
+        </div>
+    </div>
+
+    <!-- Модальное окно ввода кода -->
+    <div id="code-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-icon success-gradient">✅</div>
+                <h2>Заявка одобрена!</h2>
+                <p class="modal-subtitle">Теперь создайте свой секретный код для доступа к VPN</p>
+            </div>
+            <form id="code-form">
+                <div class="form-group">
+                    <label for="confirmation-code">🔑 Ваш секретный код:</label>
+                    <input type="text" id="confirmation-code" name="code" required maxlength="20" placeholder="Например: MySecretVPN2024">
+                    <small class="input-hint">Придумайте уникальный код, который легко запомнить</small>
+                </div>
+                <button type="submit" class="submit-button">
+                    <span class="btn-icon">🚀</span>
+                    Отправить код
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Модальное окно успеха -->
+    <div id="success-modal" class="modal">
+        <div class="modal-content success-content">
+            <div class="success-icon">🎉</div>
+            <div class="success-badge">✓</div>
+            <h2>Поздравляем!</h2>
+            <p class="success-text">Ваш VPN доступ успешно оформлен!</p>
+            <div class="success-details">
+                <div class="success-item">
+                    <span class="icon">📧</span>
+                    <span>Инструкции отправлены на email</span>
+                </div>
+                <div class="success-item">
+                    <span class="icon">📞</span>
+                    <span>Мы свяжемся с вами в течение 15 минут</span>
+                </div>
+                <div class="success-item">
+                    <span class="icon">🚀</span>
+                    <span>VPN будет активирован мгновенно</span>
+                </div>
+            </div>
+            <button id="new-order-btn" class="submit-button success-btn">
+                <span class="btn-icon">🎆</span>
+                Оформить ещё одну подписку
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
